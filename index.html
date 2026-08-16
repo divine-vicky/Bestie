@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+<title>To Mars — A Journey For You</title>
+<link rel="stylesheet" href="style.css?v=6">
+</head>
+<body>
+
+  <!-- TEMP DEBUG: shows any JS error on screen since phones have no console.
+       Safe to delete once everything is confirmed working. -->
+  <script>
+    window.addEventListener('error', function(e){
+      var msg;
+      if(e.target && e.target !== window && ['SCRIPT','LINK','AUDIO','IMG'].includes(e.target.tagName)){
+        msg = 'FAILED TO LOAD FILE: ' + (e.target.src || e.target.href) + '\n(check it exists, right next to index.html, spelled exactly right)';
+      } else {
+        msg = 'JS ERROR: ' + e.message + '\n  file: ' + e.filename + '\n  line: ' + e.lineno + ':' + e.colno;
+      }
+      var d = document.createElement('div');
+      d.style.cssText = 'position:fixed;top:0;left:0;right:0;background:#c00;color:#fff;'
+        + 'padding:10px;font:12px monospace;z-index:999999;white-space:pre-wrap;';
+      d.textContent = msg;
+      document.body.appendChild(d);
+    }, true); // capture:true — also catches a script/stylesheet that fails to load, not just runtime errors
+  </script>
+
+  <!-- 3D scene -->
+  <canvas id="scene"></canvas>
+
+  <!-- Background music. Drop your mp3 next to this file and set MUSIC_FILE
+       at the top of script.js to its exact filename. -->
+  <audio id="bgMusic" preload="auto"></audio>
+
+  <!-- Mute toggle, always available once the journey starts -->
+  <button id="muteBtn" class="mute-btn hidden">🔊</button>
+
+  <!-- Overlays used across the flight/wish/birthday sequence -->
+  <div id="wishStarLabel" class="wish-star-label hidden">Make a wish ✨<span class="wish-star-sub">tap the golden star</span></div>
+  <div id="sunFlightText" class="sun-flight-text hidden"></div>
+  <div id="confettiLayer" class="confetti-layer hidden"></div>
+  <div id="sunFlash" class="sun-flash"></div>
+
+  <!-- Build tag — just so you can confirm you're looking at the latest
+       file and not a cached/old copy. Safe to delete any time. -->
+  <div style="position:fixed;bottom:6px;left:8px;font:11px monospace;color:rgba(255,255,255,0.35);z-index:99999;">build v6</div>
+
+  <!-- ===================== SCENE 1: LAUNCH ===================== -->
+  <div id="scene-launch" class="scene visible">
+    <div class="launch-lines" id="openerLines"></div>
+    <button id="launchBtn" class="btn-primary">Tap to launch 🚀</button>
+  </div>
+
+  <!-- ===================== SCENE 2: FLIGHT (no UI, just the 3D view) ===================== -->
+  <div id="scene-flight" class="scene hidden"></div>
+
+  <!-- ===================== SCENE 3: MARS — STAR HUNT ===================== -->
+  <div id="scene-mars" class="scene hidden">
+    <div class="mars-counter" id="marsCounter">0 / 12 found</div>
+    <div class="mars-hint" id="marsHint">Drag to look around Mars — tap a star to reveal a reason</div>
+    <div class="reason-panel hidden" id="reasonPanel"></div>
+  </div>
+
+  <!-- ===================== SCENE 4: MAKE A WISH ===================== -->
+  <div id="scene-wish" class="scene hidden">
+    <div class="panel">
+      <div class="panel-title">Make a wish ✨</div>
+      <textarea id="wishInput"></textarea>
+      <button id="wishDoneBtn" class="btn-primary">Done</button>
+    </div>
+  </div>
+
+  <!-- ===================== SCENE 5: HAPPY BIRTHDAY ===================== -->
+  <div id="scene-birthday" class="scene hidden">
+    <div class="birthday-text" id="birthdayText"></div>
+  </div>
+
+  <!-- ===================== SCENE 6: THE LETTER ===================== -->
+  <div id="scene-letter" class="scene hidden">
+    <div class="panel letter-panel">
+      <div class="letter-body" id="letterBody"></div>
+    </div>
+  </div>
+
+  <!-- Three.js + OrbitControls (needs wifi/data the first time she opens it) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js" crossorigin="anonymous"></script>
+  <script src="script.js?v=6"></script>
+</body>
+</html>

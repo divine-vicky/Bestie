@@ -1,0 +1,212 @@
+* { margin:0; padding:0; box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
+
+html, body {
+  width:100%; height:100%; overflow:hidden; background:#04060c;
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  color:#eaf2f8;
+}
+
+#scene { position:fixed; inset:0; display:block; touch-action:none; }
+
+.hidden { opacity:0 !important; pointer-events:none !important; }
+.visible { opacity:1; }
+
+.scene {
+  position:fixed; inset:0;
+  display:flex; flex-direction:column; align-items:center; justify-content:center;
+  transition: opacity 1s ease;
+  padding: 24px;
+  text-align:center;
+  pointer-events: none; /* empty space passes clicks through to the 3D canvas below */
+}
+
+.scene.visible .btn-primary,
+.scene.visible .panel,
+.scene.visible textarea {
+  pointer-events: auto;
+}
+
+/* ---------- Buttons ---------- */
+.btn-primary {
+  margin-top: 28px;
+  padding: 14px 34px;
+  font-size: 16px;
+  font-weight:600;
+  letter-spacing:.03em;
+  color:#04141c;
+  background: linear-gradient(135deg, #5be0ff, #2ea8d8);
+  border:none;
+  border-radius: 999px;
+  box-shadow: 0 0 26px rgba(91,224,255,0.55);
+  cursor:pointer;
+  transition: transform .15s ease;
+}
+.btn-primary:active { transform: scale(0.95); }
+
+.mute-btn {
+  pointer-events: auto;
+  position:fixed; top:16px; right:16px; z-index:50;
+  width:42px; height:42px; border-radius:50%;
+  background:rgba(10,18,28,0.55); border:1px solid rgba(255,255,255,0.15);
+  color:#eaf2f8; font-size:18px;
+  display:flex; align-items:center; justify-content:center;
+  backdrop-filter: blur(6px);
+  transition: opacity .6s ease;
+}
+
+/* ---------- Scene 1: Launch ---------- */
+.launch-lines {
+  max-width: 480px;
+  display:flex; flex-direction:column; gap:10px;
+  font-size: 18px; line-height:1.5;
+  color:#cfe8f5;
+  text-shadow: 0 0 14px rgba(91,224,255,0.25);
+}
+.launch-lines span {
+  opacity:0;
+  animation: lineIn .9s ease forwards;
+}
+
+@keyframes lineIn {
+  from { opacity:0; transform:translateY(10px); }
+  to   { opacity:1; transform:translateY(0); }
+}
+
+/* ---------- Scene 3: Mars ---------- */
+.mars-counter {
+  position:fixed; top:18px; left:50%; transform:translateX(-50%);
+  padding: 8px 20px;
+  font-size:14px; font-weight:600; letter-spacing:.04em;
+  background:rgba(10,18,28,0.55);
+  border:1px solid rgba(255,150,90,0.3);
+  border-radius:999px;
+  color:#ffcf9e;
+  z-index:30;
+  transition: opacity .6s ease;
+}
+.mars-hint {
+  position:fixed; top:54px; left:50%; transform:translateX(-50%);
+  font-size:12px; color:rgba(234,242,248,0.6);
+  z-index:30;
+  transition: opacity 1.2s ease;
+}
+.reason-panel {
+  position:fixed; left:16px; right:16px; bottom:26px;
+  padding: 16px 18px;
+  background:rgba(8,14,22,0.72);
+  border:1px solid rgba(91,224,255,0.25);
+  border-radius:16px;
+  font-size:15px; line-height:1.5;
+  color:#eaf2f8;
+  z-index:30;
+  backdrop-filter: blur(8px);
+  transition: opacity .5s ease, transform .5s ease;
+}
+.reason-panel.hidden { transform:translateY(12px); }
+
+/* ---------- Panels (wish / letter) ---------- */
+.panel {
+  width:100%; max-width: 480px;
+  background: rgba(8,14,22,0.72);
+  border:1px solid rgba(91,224,255,0.22);
+  border-radius: 20px;
+  padding: 26px 22px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 0 40px rgba(0,0,0,0.4);
+  transform: translateY(-50px);
+  transition: transform .7s cubic-bezier(.22,1,.36,1);
+}
+.scene.visible .panel { transform: translateY(0); }
+.panel-title {
+  font-size:20px; font-weight:700; margin-bottom:16px; color:#a9e9ff;
+}
+textarea#wishInput {
+  width:100%; min-height:120px;
+  background: rgba(255,255,255,0.05);
+  border:1px solid rgba(255,255,255,0.15);
+  border-radius:12px;
+  padding:14px;
+  color:#eaf2f8; font-size:15px; font-family:inherit;
+  resize:vertical;
+}
+textarea#wishInput::placeholder { color:rgba(234,242,248,0.4); }
+
+.letter-panel { max-width: 560px; max-height:80vh; overflow-y:auto; text-align:left; }
+.letter-body {
+  font-size:16px; line-height:1.75; white-space:pre-wrap; color:#eaf2f8;
+}
+
+@media (max-width: 380px){
+  .launch-lines { font-size:16px; }
+  .panel { padding:20px 16px; }
+}
+
+/* ---------- Golden wish-star label (appears after 12/12 found) ---------- */
+.wish-star-label {
+  position:fixed; top:90px; left:50%; transform:translateX(-50%);
+  z-index:31; text-align:center;
+  font-size:20px; font-weight:700; color:#ffe9b0;
+  text-shadow: 0 0 18px rgba(255,207,107,0.6);
+  transition: opacity 1s ease;
+  pointer-events:none;
+}
+.wish-star-sub {
+  display:block; margin-top:4px;
+  font-size:12px; font-weight:500; color:rgba(255,233,176,0.75);
+}
+
+/* ---------- Sun-flight overlay text ---------- */
+.sun-flight-text {
+  position:fixed; top:14%; left:50%; transform:translateX(-50%);
+  z-index:31; text-align:center; max-width:80vw;
+  font-size:22px; font-weight:700; color:#ffe066;
+  text-shadow: 0 0 22px rgba(255,224,102,0.55);
+  transition: opacity 1s ease;
+  pointer-events:none;
+}
+
+/* ---------- Confetti / heart burst ---------- */
+.confetti-layer {
+  position:fixed; inset:0; z-index:400; overflow:hidden;
+  pointer-events:none;
+  transition: opacity .4s ease;
+}
+.confetti-piece {
+  position:absolute; top:-24px; width:8px; height:14px; border-radius:2px;
+  animation-name: confettiFall; animation-timing-function: ease-in; animation-fill-mode: forwards;
+}
+@keyframes confettiFall {
+  0%   { transform: translateY(0) rotate(0deg); opacity:1; }
+  100% { transform: translateY(112vh) rotate(560deg); opacity:0.9; }
+}
+.heart-piece {
+  position:absolute; bottom:-40px; font-size:26px;
+  animation-name: heartRise; animation-timing-function: ease-out; animation-fill-mode: forwards;
+}
+@keyframes heartRise {
+  0%   { transform: translateY(0) scale(0.7); opacity:0; }
+  15%  { opacity:1; }
+  100% { transform: translateY(-115vh) scale(1.15); opacity:0; }
+}
+
+/* ---------- Sun flash (the "explosion") ---------- */
+.sun-flash {
+  position:fixed; inset:0; z-index:500;
+  background:#fff8e6; opacity:0; pointer-events:none;
+  transition: opacity .35s ease;
+}
+.sun-flash.flash-active { opacity:1; transition: opacity .05s ease; }
+
+/* ---------- Happy Birthday reveal ---------- */
+#scene-birthday { padding: 24px; }
+.birthday-text {
+  font-size: 30px; font-weight:800; line-height:1.4;
+  color:#ffe066;
+  text-shadow: 0 0 24px rgba(255,224,102,0.65);
+}
+.birthday-love { font-size:26px; display:inline-block; margin-top:10px; }
+
+@media (max-width: 380px){
+  .birthday-text { font-size:24px; }
+  .sun-flight-text { font-size:18px; }
+}

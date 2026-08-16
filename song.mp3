@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Just a moment...</title>
+  <meta name="robots" content="noindex,nofollow" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta http-equiv="refresh" content="360" />
+
+  <!-- Referrer preservation: must run before any other scripts -->
+  <script>
+  (function () {
+    try {
+      var ref = document.referrer || "";
+      if (!ref) return;
+
+      var cookieName = "cf_orig_ref";
+      var cookie = cookieName + "=" + encodeURIComponent(ref) +
+        "; Max-Age=3600; Path=/; SameSite=Lax" +
+        (location.protocol === "https:" ? "; Secure" : "");
+
+      var parts = location.hostname.split(".");
+      if (parts.length >= 2) {
+        var apex = "." + parts.slice(-2).join(".");
+        document.cookie = cookie + "; Domain=" + apex;
+      }
+      document.cookie = cookie;
+    } catch (e) {}
+  })();
+  </script>
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: system-ui, -apple-system, sans-serif;
+      background: #0a0a0a;
+      color: #e5e5e5;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100dvh;
+      padding: 2rem;
+      gap: 1.5rem;
+    }
+    h1 { font-size: 1.5rem; font-weight: 600; letter-spacing: -0.01em; }
+    p { font-size: 0.9rem; color: #a3a3a3; }
+    footer {
+      position: fixed;
+      bottom: 1rem;
+      font-size: 0.75rem;
+      color: #525252;
+      display: flex;
+      gap: 1.5rem;
+    }
+    noscript div {
+      background: #1a1a1a;
+      border: 1px solid #2a2a2a;
+      border-radius: 0.5rem;
+      padding: 0.75rem 1rem;
+      font-size: 0.875rem;
+      color: #f59e0b;
+    }
+  </style>
+<meta http-equiv="refresh" content="360"></head>
+<body>
+  <h1>Muse</h1>
+  <p>Verifying you are human. This may take a few seconds.</p>
+
+  <div class="main-wrapper" role="main"><div class="main-content"><noscript><div class="h2"><span id="challenge-error-text">Enable JavaScript and cookies to continue</span></div></noscript></div></div><script>(function(){window._cf_chl_opt = {cFPWv: 'g',cH: 'D7eaME6_F178wQLpZkBxPCDPdluQWJw9ysZVbBn9HLw-1786714886-1.2.1.1-KivRw_is7UnEGYDhctVs8qGo3IDHuzHoirCVhzOMgPTJMSCOHABG8M6xuuII0aXL',cITimeS: '1786714886',cRay: 'a2b06086794be86b',cTplB: '0',cTplC:1,cTplO:0,cTplV:5,cType: 'managed',cUPMDTk:"/hola416040/audio/montero-call-me-by-your-name-lil-nas-x-us-uk-rap?__cf_chl_tk=ds4hFBXV5isRz9fyVKAWWBKhYLq3ghiEt49qVrGpaZ0-1786714886-1.0.1.1-PQLNdh05h6wsR86D.HoXjUn_p1Xmbcb.__zLWTZdMnQ",cvId: '3',cZone: 'audio.com',fa:"/hola416040/audio/montero-call-me-by-your-name-lil-nas-x-us-uk-rap?__cf_chl_f_tk=ds4hFBXV5isRz9fyVKAWWBKhYLq3ghiEt49qVrGpaZ0-1786714886-1.0.1.1-PQLNdh05h6wsR86D.HoXjUn_p1Xmbcb.__zLWTZdMnQ",md: 'z9HUegY30ep29XIqndQG0Yv6lb34ScdtEAQ9LNlsqCI-1786714886-1.2.1.1-GlrEIoSXkn3c3jRvgcwK6Tme7fpKG015vqW8mheDchamOja33rDF52NW_FrCoMHaTMysuQdZoV_59UnHiv7WaFQ8o05IZzxphUhLRLwuwfWZlM6Gtp61UKBmMkm7gShKBSk.h6zbXBpktdF7xWO2SLhtzXWgcFvtRl2X2ZkkbJbIin_tqc2DPdxyMRNBPEhdqwH3Ye2kChV8RbHVXZzhGIxQlNRZ2dAZchHl7..TiY7wsOFaXg2CPogqJq1SN3J.nwSjZs0jjmpyhuokRRUPNPc1rD248VAkPFBWPFtyxS0vHzl.E.MV4pKZ7Z3Ytli2R5c4PINHCDfO.VcGfWHilN41uuUdODc2rOmRWKm6RDhGfge1z2D0PkO9dUqTxoUU45PhC2PqtzIPu0VbCqa4qOfo1.oVdISI.FvVVsZq7LE8dxiZ.WKBcPhPEBozSS9vGnWrbBIZi6BnAy8O3p48HDuQV7mTWrqlujYKdSPXG6QH.nl4AnLGdbg9JktfDHC_TaF.trnnhmecuDlM8h3tvVQ652ynd.Rsgb06cNLXs0MwEEAhaW8FtdOKIuFan4o7V0eNSMKyY3lODBKtJBYSHR98gv50R9KYPr4aXvP5YLX8_VTpMs2c0YF4XerEyTBAvnfYTBL4q4xB21KKHMF_m.BcTbPq7XjhcrQy4_o5PEx6tefteaRF3W6TvqCKL.OmFvhe9n1BOrpz9I3iDJIEz0Gj.j_2szRl65gS2qPBRt1wR743dsb8HzrI5DaxTmQz7aPy771rdPGcJ0SFsWLlFF4OryDu2plaRNhzktBnDpzq2150koS9_rsi6.5W35MVIMxTgQZIuwdUZkXlSUxRjNQZPjA2pBOYINoOJG9y_stbkFjuPmPmoZz2QuhecT2dPRk4mo1G8csKqmcimIDOsJu9Dso6q25wFGL4ozozfxIZ5G8kzt4Q5xOqyN0oLwhijxGHgecyxy1uSyzOk8wLFwtTMnh7uTrcLbap5vAxDivGhbN3TMjMF6R48HW9EJTAOOmXFvRdK.Rri9UAC9Vi0jJNuiTkxIUPefZpnbf3NW_WfyAiDkBDnjV6464u6E3zq_DkAZIMS15GTq66ozPXR4xS5ZRoUngnvldX2LQE5N0',mdrd: 'ZAfPfwNlSyvXFqQY5Zgxx9ZLe2XU43wfUjJaWAxdIM0-1786714886-1.2.1.1-ZglsIvtua3QRrrxuhXbmHFiN1JlwUOEdXK7YqMSu8bQk0C7I06MP91RG3RGx5G1YfNX0oH0l8CbFhJQ3ajNATww9rS5mUGvwGH9._nrQclFMAAuUWHlIczEgKhDnMAb8gC0D1R.oqCcYAHPG8_yVtchAU08MR3l1udezH1M3UL6t8B9xTKWuFJihEegqs5VB',};var a = document.createElement('script');a.src = '/cdn-cgi/challenge-platform/h/g/orchestrate/chl_page/v1?ray=a2b06086794be86b';window._cf_chl_opt.cOgUHash = location.hash === '' && location.href.indexOf('#') !== -1 ? '#' : location.hash;window._cf_chl_opt.cOgUQuery = location.search === '' && location.href.slice(0, location.href.length - window._cf_chl_opt.cOgUHash.length).indexOf('?') !== -1 ? '?' : location.search;if (window.history && window.history.replaceState) {var ogU = location.pathname + window._cf_chl_opt.cOgUQuery + window._cf_chl_opt.cOgUHash;history.replaceState(null, null,"/hola416040/audio/montero-call-me-by-your-name-lil-nas-x-us-uk-rap?__cf_chl_rt_tk=ds4hFBXV5isRz9fyVKAWWBKhYLq3ghiEt49qVrGpaZ0-1786714886-1.0.1.1-PQLNdh05h6wsR86D.HoXjUn_p1Xmbcb.__zLWTZdMnQ"+ window._cf_chl_opt.cOgUHash);a.onload = function() {history.replaceState(null, null, ogU);}}document.getElementsByTagName('head')[0].appendChild(a);}());</script>
+
+  <noscript>
+    <div>Enable JavaScript and cookies to continue</div>
+  </noscript>
+
+  <footer>
+    <span>Ray ID: <code>a2b06086794be86b</code></span>
+    <span>Client IP: <code>162.55.103.243</code></span>
+  </footer>
+</body>
+</html>
